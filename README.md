@@ -1,4 +1,4 @@
-# lưu ý 6 packages quan trọng
+# Lưu ý 6 packages quan trọng
 
 - db : kết nối với database
 - models : khai báo các trường của bảng, và hàm tương tác với data
@@ -15,13 +15,13 @@ country_code text,
 country_name text
 )
 
-# chỉnh sửa file db/postgres.go
+# Chỉnh sửa file db/postgres.go
 
 - postgres://<username>:<password>@localhost/<dbname>?sslmode=disable
 
-# lưu ý quan trọng khi đặt TableName, fields cho struct và cho table
+# Lưu ý quan trọng khi đặt TableName, fields cho struct và cho table
 
-# vì đây là ORM framework, nên Id là trường dữ liệu bắt buộc
+# Vì đây là ORM framework, nên Id là trường dữ liệu bắt buộc
 
 - Ở table
 - TableName : countries
@@ -31,16 +31,21 @@ country_name text
 - TableName : Countries
 - Id - CountryCode - CountryName
 
-# trong trường hợp chạy bị lỗi version postgres
+# Ở Beego
+
+- nếu muốn call 1 func từ file go khác, đặt tên func đó theo capitalization rules
+- vd ( func HamGiDo() {} )
+
+# Trong trường hợp chạy bị lỗi version postgres
 
 - run : go get github.com/lib/pq
 
-# (optional) đối với views\*.tpl
+# (optional) đối với views/\*.tpl
 
 - có thể chỉnh language mode về html, để dễ tạo html code
 - ngay dưới status bar phía bên phải
 
-# chạy project
+# Chạy project
 
 - bee run
 - http://localhost:8080/
