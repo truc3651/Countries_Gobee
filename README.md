@@ -17,7 +17,7 @@ country_name text
 
 # Chỉnh sửa file db/postgres.go
 
-- postgres://<username>:<password>@localhost/<dbname>?sslmode=disable
+- postgres://username:password@localhost/dbname?sslmode=disable
 
 # Lưu ý quan trọng khi đặt TableName, fields cho struct và cho table
 
