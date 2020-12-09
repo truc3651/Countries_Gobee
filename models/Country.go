@@ -47,14 +47,17 @@ func LoopCsv(fileName string) []Countries {
 	records := ReadCsv(fileName)
 	var listCountries []Countries
 	flag := false
-	code := 0
-	name := 1
+	code := -1
+	name := -1
 
 	for _, record := range records {
 		if !flag {
-			if record[0] == "Name"{
-				code = 0
+			if record[0] == "Name" {
+				name = 0
+				code = 1
+			} else {
 				name = 1
+				code = 0
 			}
 			flag = true
 		}else{
@@ -112,13 +115,4 @@ func CheckErr(mess string, err error){
 // register
 func init() {
 	orm.RegisterModel(new(Countries))
-	// orm.RegisterDriver("postgres", orm.DRPostgres)
-	// err := orm.RegisterDataBase(
-	// 	"default", 
-	// 	"postgres", 
-	// 	"postgres://postgres:anhyeuhanoi@localhost/VATNOW?sslmode=disable")
-	// // postgres://<username>:<password>@localhost/<dbname>?sslmode=disable
-	// if err != nil {
-	// 	log.Fatal("@register: ", err)
-	// }
 }
