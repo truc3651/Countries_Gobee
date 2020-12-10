@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Beego</title>
+    <title>Countries</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 

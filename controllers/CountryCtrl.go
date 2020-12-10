@@ -12,9 +12,14 @@ type MainController struct {
 
 // route "/"
 func (c *MainController) Get() {
-	listCountries := models.GetAll()
+	listCountries := models.GetAllCountries()
+	// return data on template
 	c.Data["listCountries"] = listCountries
 	c.TplName = "countries.tpl"
+
+	// return json
+	// c.Data["json"] = &listCountries
+    // c.ServeJSON()
 }
 
 // route "/insert"
@@ -24,13 +29,21 @@ func (c *MainController) Get() {
 // after inserted, redirect to route "/"
 func (c *MainController) InsertCountries() {
 	// delete all
-	models.DeleteAll()
+	models.DeleteAllCountries()
 	// insert
-	uri := "static/files/country.csv"
-	listCountries := models.LoopCsv(uri)
-	models.InsertMulti(listCountries)
+	// uri := "static/files/country.csv"
+	uri := "data/country.csv"
+	listCountries := models.LoopCountriesCsv(uri)
+	models.InsertMultiCountries(listCountries)
 
 	c.Redirect("/", 302)
+}
+
+// route "/location"
+func (c *MainController) ChooseLocations() {
+	listCountries := models.GetAllCountries()
+	c.Data["listCountries"] = listCountries
+	c.TplName = "locations.tpl"
 }
 
 
